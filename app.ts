@@ -1,14 +1,17 @@
-function add(n1: number, n2: number){
-    return n1 + n2;
+let userInput: unknown;
+let userName: string;
+
+userInput = 5;
+userInput = 'Max';
+if(typeof userInput === 'string')   {
+    userName = userInput;
 }
 
-function printResult(num: number){
-    console.log('Result:' + num)
+function generateError(message: string, code: number): never {
+    throw {message: message, errorCode: code};
+    // while(true){}
 }
 
-let combineValues: (a: number, b: number) => number;
 
-// combineValues = add;
-// combineValues = printResult;
-
-console.log(combineValues(8, 8));
+const result = generateError('An error occured!', 500);
+console.log(result);
